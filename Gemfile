@@ -3,7 +3,8 @@ source "https://rubygems.org"
 ruby '2.4.1'
 
 gem "decidim", git: "https://github.com/decidim/decidim.git"
-gem "decidim-proposals", git: "https://github.com/Hilfe/decidim.git", branch:"proposals_with_images"
+gem "decidim-proposals", git: "https://github.com/Hilfe/decidim.git", branch:"login_advise"
+gem "decidim-core", git: "https://github.com/Hilfe/decidim.git", branch:"login_advise"
 
 gem 'puma', '~> 3.0'
 gem 'uglifier', '>= 1.3.0'
