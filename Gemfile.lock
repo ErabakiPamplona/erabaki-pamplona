@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Hilfe/decidim.git
-  revision: 98210d8c4f9bcb57870c5a5921a0750f214345e1
+  revision: 8bbbed5f10f5f13d796d2087911d9995100ed269
   branch: login_advise
   specs:
     decidim-core (0.2.0.pre)
