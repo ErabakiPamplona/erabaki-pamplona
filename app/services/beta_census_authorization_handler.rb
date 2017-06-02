@@ -4,7 +4,7 @@ require "digest/md5"
 
 # This class performs a check against the official census database in order
 # to verify the citizen's residence.
-class BetaCensusAuthorizationHandler < Decidim::AuthorizationHandler
+class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   include ActionView::Helpers::SanitizeHelper
 
   attribute :document_number, String
