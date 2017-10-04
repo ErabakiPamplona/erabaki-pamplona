@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby '2.4.1'
 
-gem "decidim"
+gem "decidim", :git => "git://github.com/decidim/decidim.git", :branch => "master"
 
 gem 'puma'
 gem 'uglifier'
@@ -11,7 +11,7 @@ gem 'faker'
 group :development, :test do
   gem 'byebug', platform: :mri
 
-  gem "decidim-dev"
+  gem "decidim-dev", :git => "git://github.com/decidim/decidim.git", :branch => "master"
 
 end
 
