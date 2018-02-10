@@ -2,8 +2,7 @@ source "https://rubygems.org"
 
 ruby '2.4.1'
 
-gem "decidim", :git => "git://github.com/decidim/decidim.git", :branch => "master"
-
+gem "decidim", git:"https://github.com/decidim/decidim.git", :tag => 'v0.9.2'
 gem 'puma'
 gem 'uglifier'
 gem 'faker'
@@ -11,7 +10,7 @@ gem 'faker'
 group :development, :test do
   gem 'byebug', platform: :mri
 
-  gem "decidim-dev", :git => "git://github.com/decidim/decidim.git", :branch => "master"
+  gem "decidim-dev", :git => "git://github.com/decidim/decidim.git", :tag => 'v0.9.2'
 
 end
 
