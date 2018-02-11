@@ -1,0 +1,32 @@
+version: '3'
+services:
+  decidim:
+    build: .
+    entrypoint: /code/bin/entrypoint.sh
+    command: bundle exec rails s -p 3000 -b 0.0.0.0
+    working_dir: "/code"
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/code
+      - gems:/gems
+    environment:
+      - DATABASE_HOST=pg
+      - DATABASE_USERNAME=postgres
+      - GEM_HOME=/gems
+    links:
+      - pg
+      - redis
+  pg:
+    image: postgres
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+  redis:
+    image: redis
+    volumes:
+      - redis-data:/data
+volumes:
+  dummy_app: {}
+  gems: {}
+  pg-data: {}
+  redis-data: {}

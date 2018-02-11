@@ -1,0 +1,20 @@
+<div class="author-data__main">
+  <div class="author author--inline">
+    <% if post.author.present? %>
+      <span class="author__avatar author__avatar--small">
+        <%= image_tag post.author.avatar.url %>
+      </span>
+      <span class="author__name">
+        <%= post.author.name %>
+      </span>
+    <% end %>
+    <%= render partial: "datetime", locals: { post: post } %>
+  </div>
+</div>
+<% if post.commentable? %>
+  <div class="author-data__extra">
+    <%= icon "envelope-closed", class: 'icon--small' %>
+    <%= post.comments.count %>
+    comments
+  </div>
+<% end %>

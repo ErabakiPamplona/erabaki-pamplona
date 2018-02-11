@@ -1,0 +1,14 @@
+Most commented
+<ul>
+  <% posts.each do |post| %>
+    <li>
+      <%= link_to post do %>
+        <%= translated_attribute post.title %>
+        <br/>
+        <%= render partial: "datetime", locals: { post: post } %>
+        <%= icon "envelope-closed", class: 'icon--small' %>
+        <%= post.comments.count %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

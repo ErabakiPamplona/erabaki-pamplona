@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180210173279) do
+ActiveRecord::Schema.define(version: 20180211002806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -351,6 +351,16 @@ ActiveRecord::Schema.define(version: 20180210173279) do
     t.index ["decidim_reportable_type", "decidim_reportable_id"], name: "decidim_moderations_reportable", unique: true
     t.index ["hidden_at"], name: "decidim_moderations_hidden_at"
     t.index ["report_count"], name: "decidim_moderations_report_count"
+  end
+
+  create_table "decidim_module_blogs_posts", id: :serial, force: :cascade do |t|
+    t.jsonb "title"
+    t.jsonb "body"
+    t.integer "decidim_feature_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "decidim_author_id"
+    t.index ["decidim_feature_id"], name: "index_decidim_module_blogs_posts_on_decidim_feature_id"
   end
 
   create_table "decidim_newsletters", id: :serial, force: :cascade do |t|

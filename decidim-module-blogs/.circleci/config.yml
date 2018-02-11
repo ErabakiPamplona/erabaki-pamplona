@@ -1,0 +1,43 @@
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: decidim/decidim:0.9-test
+        environment:
+          BUNDLE_GEMFILE: /app/Gemfile
+      - image: circleci/postgres:9.6.5-alpine
+
+    working_directory: /app
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "Gemfile.lock" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run:
+          name: install dependencies
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
+          name: Generate test app
+          command: bundle exec rake decidim:generate_external_test_app
+      - run:
+          name: Run RSpec tests
+          command: bundle exec rspec
+      - store_artifacts:
+          path: /app/spec/decidim_dummy_app/tmp/capybara

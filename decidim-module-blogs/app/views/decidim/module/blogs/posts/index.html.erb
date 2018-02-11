@@ -1,0 +1,10 @@
+<%= render partial: "decidim/shared/feature_announcement" %>
+
+<div class="row">
+  <div id="blogs" class="columns small-12 medium-9">
+    <%= render partial: "posts" %>
+  </div>
+  <div id="most-commented" class="columns small-12 medium-3">
+    <%= render partial: "sidebar_blog", locals: {posts: posts_most_commented} %>
+  </div>
+</div>

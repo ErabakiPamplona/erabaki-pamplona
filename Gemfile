@@ -3,6 +3,7 @@ source "https://rubygems.org"
 ruby '2.4.1'
 
 gem "decidim", git:"https://github.com/decidim/decidim.git", :tag => 'v0.9.2'
+gem "decidim-module-blogs", path:"decidim-module-blogs"
 gem 'puma'
 gem 'uglifier'
 gem 'faker'
