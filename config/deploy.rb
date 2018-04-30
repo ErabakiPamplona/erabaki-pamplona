@@ -37,7 +37,8 @@ set :keep_releases, 5
 
 ## Linked Files & Directories (Default None):
 set :linked_files, %w{config/database.yml config/secrets.yml}
-set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/assets}
+set :linked_dirs,  %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/assets}
+set :bundle_binstubs, nil
 
 ## Public/uploads
 set :linked_dirs, fetch(:linked_dirs) + %w{public/uploads}
