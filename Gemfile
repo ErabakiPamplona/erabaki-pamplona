@@ -2,15 +2,16 @@ source "https://rubygems.org"
 
 ruby '2.5.0'
 
-gem "decidim", git:"https://github.com/decidim/decidim.git", branch:'0.12-stable'
+DECIDIM_VERSION = { git:"https://github.com/decidim/decidim.git", branch:'0.13-stable' }
+
+gem "decidim", DECIDIM_VERSION
 gem 'puma'
 gem 'uglifier'
 gem 'faker'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-
-gem "decidim", git:"https://github.com/decidim/decidim.git", branch:'0.12-stable'
+  gem "decidim", DECIDIM_VERSION
 
 end
 
