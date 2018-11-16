@@ -480,7 +480,7 @@ GEM
       railties (>= 4.2.0, < 5.3)
     ruby-ole (1.2.12.1)
     ruby_dep (1.5.0)
-    rubyzip (1.2.1)
+    rubyzip (1.2.2)
     sass (3.4.25)
     sassc (1.11.4)
       bundler
