@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby '2.5.0'
 
-DECIDIM_VERSION = { git:"https://github.com/decidim/decidim.git", branch:'0.16-stable' }
+DECIDIM_VERSION = { git:"https://github.com/decidim/decidim.git", branch:'0.17-stable' }
 
 gem "decidim", DECIDIM_VERSION
 gem 'puma'
